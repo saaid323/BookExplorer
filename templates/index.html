@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/index.css" /> 
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+    <body>
+        <aside>
+          <div class="logo">
+            <a href="" onclick="hideResultsAndRedirect()">
+              BooksExplorer
+            </a>
+          </div>
+          <nav>
+            <ul>
+              <li>
+                <a class="nav scrolltoview current" href="{{ url_for('index') }}"
+                  ><span class="icon"></span>Search</a
+                >
+              </li>
+              <li>
+                <a class="nav scrolltoview" href="#programming">Programming</a
+                >
+              </li>
+              <li>
+                <a class="nav scrolltoview" href="#poetry   ">Poetry</a
+                >
+              </li>
+              <li>
+                <a class="nav scrolltoview" href="#fantasy">Fantasy</a
+                >
+              </li>
+              <li>
+                <a class="nav scrolltoview" href="#fiction">Fiction</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </aside>
+        <div class="container">
+          <form action="{{ url_for('index') }}" method="get">
+            <div>
+              <input type="search" placeholder="Search" name="q">
+              <button type="submit" id="search">Search</button>
+            </div>
+          </form>
+          {% if results %}
+            <h1>Results:</h1>
+           <div class="row" id="resultsSection">
+            <div class="col-4 col-sm-2">
+              {% for i in results %}
+                <a href="{{ i.preview }}" target="_blank">
+                    <img src="{{ i.images }}">
+                </a>
+                <a href="{{ i.preview }}" target="_blank"><p>{{ i.title }}</p></a>
+                {% endfor %}  
+              </div>
+           </div>
+          {% endif %}
+          <h1 id='programming'>Programming</h1>
+            
+          {% for i in range(0, all_items_1|length, 3) %}
+          <div class="row">
+              {% for j in range(i, i+3) %}
+                  {% if j < all_items_1|length %}
+                      <div class="col-4 col-sm-2">
+                          <a href="{{ all_items_1[j].preview }}" target="_blank">
+                              <img src="{{ all_items_1[j].images }}">
+                          </a>
+                          <a href="{{ all_items_1[j].preview }}" target="_blank">
+                            <p>{{ all_items_1[j].title }}</p>
+                          </a>
+                      </div>
+                  {% endif %}
+              {% endfor %}
+          </div>
+          {% endfor %}
+          {% if page_1 > 1 %}
+              <a href="{{ url_for('index', page_1=page_1-1) }}">
+                  <button type="button" class="btn btn-primary">Previous</button>
+              </a>
+          {% endif %}
+          <span></span>
+          {% if page_1 < total_pages %}
+              <a href="{{ url_for('index', page_1=page_1+1) }}">
+                  <button type="button" class="btn btn-primary">Next</button>
+              </a>
+          {% endif %}
+          <h1 id="poetry">Poetry</h1>
+          {% for i in range(0, all_items|length, 3) %}
+          <div class="row">
+              {% for j in range(i, i+3) %}
+                  {% if j < all_items|length %}
+                      <div class="col-4 col-lg-2">
+                          <a href="{{ all_items[j].preview }}" target="_blank">
+                              <img src="{{ all_items[j].images }}">
+                          </a>
+                          <a href="{{ all_items[j].preview }}" target="_blank">
+                              <p class="title">{{ all_items[j].title }}</p>
+                          </a>
+                      </div>
+                  {% endif %}
+              {% endfor %}
+          </div>
+          {% endfor %}
+          {% if page > 1 %}
+              <a href="{{ url_for('index', page=page-1) }}">
+                  <button type="button" class="btn btn-primary">Previous</button>
+              </a>
+          {% endif %} <span></span>
+          {% if page < total_pages %}
+              <a href="{{ url_for('index', page=page+1) }}">
+                  <button type="button" class="btn btn-primary">Next</button>
+              </a>
+          {% endif %}
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script>
+          $(document).ready(function () {
+              // jQuery version of hideResultsAndRedirect
+              function hideResultsAndRedirect() {
+                  $('#resultsSection').hide();
+                  window.location.href = "{{ url_for('index') }}";
+              }
+      
+              // Attach the click event to the "BooksExplorer" link
+              $('.logo a').on('click', function (e) {
+                  e.preventDefault(); // Prevent the default link behavior
+                  hideResultsAndRedirect();
+              });
+          });
+      </script>
+    </body>
+</html>

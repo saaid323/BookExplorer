@@ -1,0 +1,114 @@
+
+* {
+    box-sizing: border-box;
+    outline: 0;
+    border: 0;
+    font-family: Montserrat, "Roboto", "Noto", sans-serif;
+}
+
+html body {
+    background-color: #090b28;
+    color: rgba(0, 0, 0, 0.9);
+    font-weight: 500;
+    font-size: 16px;
+}
+
+aside {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    padding: 32px;
+    width: 20%;
+    height: 100%;
+    background-color: #090b28;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+
+.logo {
+    padding: 0 32px;
+    font-weight: 900;
+    font-size: 24px;
+}
+
+.search {
+    display: flex;
+    padding: 16px 0;
+    background-color: transparent;
+    color: var(--font-color);
+    text-overflow: ellipsis;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.2s;
+    flex-grow: 1;
+}
+.search {
+    width: 300px;
+}
+
+.nav {
+    display: flex;
+    margin: 8px 0;
+    padding: 16px 32px;
+    border-radius: 32px;
+    font-weight: 600;
+    transition: all 0.2s;
+    align-items: center;
+}
+  
+.nav .scrolltoview {
+    margin-right: 16px;
+}
+  
+.nav.current {
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.4);
+    color: rgb(255, 255, 255);
+}
+  
+.nav:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.container{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.container .row{
+    justify-content: center;
+}
+
+.container div input{
+    width: 300px;
+    border-radius: 2%;
+}
+
+.container h1{
+    color: rgb(255, 255, 255);
+    margin-left: -23rem;
+}
+
+
+a:link, a:visited {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+
+@media (max-width: 768px) {
+    aside {
+      position: sticky;
+      padding: 16px;
+      width: 100%;
+      height: auto;
+    }
+}
+
