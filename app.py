@@ -29,7 +29,7 @@ POETRY = get_books("poetry")
 PROGRAMMING = get_books("programming")
 
 
-@app.route('/')
+@app.route('/index')
 def index():
     items = POETRY
     page = request.args.get('page', 1, type=int)
@@ -40,7 +40,7 @@ def index():
     all_items = items[start:end]
 
     q = request.args.get('q')
-    results = get_books(q)
+    results = get_books(q)[:6]
 
     items_1 = PROGRAMMING
     page_1 = request.args.get('page_1', 1, type=int)
@@ -54,7 +54,8 @@ def index():
                             all_items=all_items, page=page, page_1=page_1, per_page_1=per_page_1,
                             total_pages_1=total_pages_1, all_items_1=all_items_1, results=results)
 
-
-
      
+@app.route("/")
+def home():
+     return render_template("home.html")
 
