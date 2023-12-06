@@ -54,6 +54,7 @@ def index():
                             all_items=all_items, page=page, page_1=page_1, per_page_1=per_page_1,
                             total_pages_1=total_pages_1, all_items_1=all_items_1, results=results)
 
+<<<<<<< HEAD
 
 @app.route("/")
 def home():
@@ -62,3 +63,10 @@ def home():
      
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5001)
+=======
+     
+@app.route("/")
+def home():
+     return render_template("home.html")
+
+>>>>>>> b59918891c6628d93e8be977a20091822e3050e9

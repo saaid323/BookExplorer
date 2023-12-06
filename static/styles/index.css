@@ -107,6 +107,11 @@ a:link, a:visited {
     margin-left: 200px;
 }
 
+#results {
+    width: 900px;
+    margin-left: 200px;
+}
+
 @media (max-width: 768px) {
     aside {
       position: sticky;
