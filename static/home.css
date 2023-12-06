@@ -1,0 +1,20 @@
+html body {
+    background-color: #090b28;
+    color: rgba(0, 0, 0, 0.9);
+    font-weight: 500;
+    font-size: 16px;
+}
+header {
+    padding-top: 20px;
+}
+.center {
+    width: 450px;
+    float: right;
+    margin-right: 80px;
+}
+.phrase {
+    box-sizing: border-box;
+    width: 300px;
+    color: rgb(229, 231, 231);
+    padding: 50px;
+}

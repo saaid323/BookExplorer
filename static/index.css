@@ -101,7 +101,11 @@ a:link, a:visited {
     text-decoration: none;
     color: rgb(255, 255, 255);
 }
-
+#results {
+    box-sizing: border-box;
+    width: 800px;
+    margin-left: 200px;
+}
 
 @media (max-width: 768px) {
     aside {
