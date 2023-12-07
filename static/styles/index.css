@@ -112,6 +112,10 @@ a:link, a:visited {
     margin-left: 200px;
 }
 
+.footer {
+    margin: 50px;
+}
+
 @media (max-width: 768px) {
     aside {
       position: sticky;

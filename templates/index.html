@@ -124,6 +124,71 @@
                   <button type="button" class="btn btn-primary">Next</button>
               </a>
           {% endif %}
+
+          <h1 id='fantasy'>Fantasy</h1>
+            
+          {% for i in range(0, all_items_2|length, 3) %}
+          <div class="row">
+              {% for j in range(i, i+3) %}
+                  {% if j < all_items_2|length %}
+                      <div class="col-4 col-sm-2">
+                          <a href="{{ all_items_2[j].preview }}" target="_blank">
+                              <img src="{{ all_items_2[j].images }}">
+                          </a>
+                          <a href="{{ all_items_2[j].preview }}" target="_blank">
+                            <p>{{ all_items_2[j].title }}</p>
+                          </a>
+                     </div>
+                  {% endif %}
+              {% endfor %}
+          </div>
+          {% endfor %}
+          {% if page_2 > 1 %}
+              <a href="{{ url_for('index', page_2=page_2-1) }}">
+                  <button type="button" class="btn btn-primary">Previous</button>
+              </a>
+          {% endif %}
+          <span></span>
+          {% if page_2 < total_pages_2 %}
+              <a href="{{ url_for('index', page_2=page_2+1) }}">
+                  <button type="button" class="btn btn-primary">Next</button>
+              </a>
+          {% endif %}
+
+          <h1 id='fiction'>Fiction</h1>
+            
+          {% for i in range(0, all_items_3|length, 3) %}
+          <div class="row">
+              {% for j in range(i, i+3) %}
+                  {% if j < all_items_3|length %}
+                      <div class="col-4 col-sm-2">
+                          <a href="{{ all_items_3[j].preview }}" target="_blank">
+                              <img src="{{ all_items_3[j].images }}">
+                          </a>
+                          <a href="{{ all_items_3[j].preview }}" target="_blank">
+                            <p>{{ all_items_3[j].title }}</p>
+                          </a>
+                     </div>
+                  {% endif %}
+              {% endfor %}
+          </div>
+          {% endfor %}
+          {% if page_3 > 1 %}
+              <a href="{{ url_for('index', page_3=page_3-1) }}">
+                  <button type="button" class="btn btn-primary">Previous</button>
+              </a>
+          {% endif %}
+          <span></span>
+          {% if page_3 < total_pages_3 %}
+              <a href="{{ url_for('index', page_3=page_3+1) }}">
+                  <button type="button" class="btn btn-primary">Next</button>
+              </a>
+          {% endif %}
+
+          <div class="footer">
+          </div>
+
+
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script>
