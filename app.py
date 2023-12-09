@@ -4,6 +4,9 @@ import requests
 app = Flask(__name__)
 
 def get_books(query, start_index=0, max_results=38):
+      """
+      sends request to google books api.
+      """
       items = []
       base_url = "https://www.googleapis.com/books/v1/volumes"
       params = {
@@ -33,6 +36,11 @@ FICTION = get_books("Fiction")
 
 @app.route('/index')
 def index():
+    """
+    This looks bad but i did this because i wanted
+    everything to be in one page.
+    """
+    # POETRY query result
     items = POETRY
     page = request.args.get('page', 1, type=int)
     per_page = 6
@@ -41,9 +49,11 @@ def index():
     end = start + per_page
     all_items = items[start:end]
 
+    # query the search
     q = request.args.get('q')
     results = get_books(q)[:6]
-
+    
+    # Programming query result
     items_1 = PROGRAMMING
     page_1 = request.args.get('page_1', 1, type=int)
     per_page_1 = 6
@@ -52,7 +62,7 @@ def index():
     end_1 = start_1 + per_page_1
     all_items_1 = items_1[start_1:end_1]
 
-
+    # fantasy query result
     items_2 = FANTASY
     page_2 = request.args.get('page_2', 1, type=int)
     per_page_2 = 6
@@ -61,6 +71,7 @@ def index():
     end_2 = start_2 + per_page_2
     all_items_2 = items_2[start_2:end_2]
 
+    # fiction query result
     items_3 = FICTION
     page_3 = request.args.get('page_3', 1, type=int)
     per_page_3 = 6
@@ -79,10 +90,8 @@ def index():
 
 @app.route("/")
 def home():
-     return render_template("home.html")
-
-     
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5001)
-     
+     """
+     Home page
+     """
+     return render_template("home.html")     
 

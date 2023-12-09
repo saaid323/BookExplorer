@@ -37,7 +37,7 @@ aside {
     display: flex;
     padding: 16px 0;
     background-color: transparent;
-    color: var(--font-color);
+    color: rgba(255, 255, 255, 1);
     text-overflow: ellipsis;
     font-weight: 600;
     font-size: 16px;
