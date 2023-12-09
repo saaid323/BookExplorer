@@ -14,5 +14,5 @@ first install flask
 ### Contribution
 I was the only contributor.
 ### Licensing
-Licensing
+No Licensing
 
