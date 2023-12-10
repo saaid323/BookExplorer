@@ -17,5 +17,5 @@ cd into BookExplorer
 ### Contribution
 You are welcome to contribute.
 ### Licensing
-No Licensing
+At the top.
 
